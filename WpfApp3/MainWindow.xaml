@@ -22,14 +22,14 @@
         </Menu>
         <ToolBarTray Grid.Row="1">
             <ToolBar Margin="5" Padding="5">
-                <ComboBox Width="200" Margin="5" Padding="5" SelectedIndex="0" SelectionChanged="FontFamilyChanged">
+                <ComboBox x:Name="cbFont" Width="200" Margin="5" Padding="5" SelectedIndex="0" >
                     <TextBlock Text="Arial"/>
                     <TextBlock Text="Times New Roman"/>
                     <TextBlock Text="Verdana"/>
                 </ComboBox>
             </ToolBar>
             <ToolBar Margin="5" Padding="5">
-                <ComboBox Width="100" Margin="5" Padding="5" SelectedIndex="0" SelectionChanged="FontSizeChanged">
+                <ComboBox x:Name="cbFSize" Width="100" Margin="5" Padding="5" SelectedIndex="0" >
                     <TextBlock Text="16"/>
                     <TextBlock Text="18"/>
                     <TextBlock Text="24"/>
@@ -56,6 +56,9 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="SimpleEditor"  Grid.Row="2" Margin="5" Padding="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="SimpleEditor"  Grid.Row="2" Margin="5" Padding="5" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 FontSize="{Binding ElementName=cbFSize, Path=Text}"
+                 FontFamily="{Binding ElementName=cbFont, Path=Text}"/>
     </Grid>
 </Window>
